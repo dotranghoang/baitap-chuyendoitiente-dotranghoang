@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <h3>Amount: <br/>
+        <input type="text" id="amount" value=""><br/>
+        From Currency:<br/>
+        <select id="from" value="">
+            <option value="VN">VND</option>
+            <option value="US">USA</option>
+        </select><br/>
+        To Currency:<br/>
+        <select id="to" value="">
+                <option value="VN">VND</option>
+                <option value="US">USA</option>
+            </select><br/>
+        <button type="button" onclick="convert()">Convert</button>
+        <p id="ketqua"></p>
+</h3>
+        
+    </form>
+    <script>
+        function convert() {
+            let amount=document.getElementById("amount").value;
+            let a=parseInt(amount);
+            let from=document.getElementById("from").value;
+            let to=document.getElementById('to').value;
+            let result;
+            let VtoU= a /23000;
+            let UtoV= a *23000;
+            if(from=="VN" && to=="VN") {
+              result=amount;
+          } else if(from=="VN" && to=="US") {
+              result=VtoU;
+          } else if(from=="US"  && to=="VN") {
+              result=UtoV;
+          } else {
+              result=amount;
+          }
+          document.getElementById("ketqua").innerHTML=result;
+        }
+    </script>
+    
+</body>
+</html>
